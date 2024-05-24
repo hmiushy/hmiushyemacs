@@ -80,18 +80,16 @@
  ;; If there is more than one, they won't work right.
 ;; )
 
-
 (require 'package)
 (autoload 'package-run "package")
-
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://mail.gnu.org/archive/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
 
 ;;(package-initialize)
-(with-eval-after-load 'package
-  (package-initialize))
+(with-eval-after-load 'package (package-initialize))
 
 ;; Package manager
 ;; Run Installation and initialization by writing these codes
@@ -117,22 +115,19 @@
 (straight-use-package 'ido-vertical-mode)
 (straight-use-package 'flycheck-grammarly)
 
-;; 検索の補完機能
+;; Research completion
 (require 'ido-vertical-mode)
 (ido-mode 1)
 (ido-vertical-mode 1)
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
-;; ;; タイトルバーに時計とファイル名表示
+;; ;; Display the clock and file name on title
 (when (window-system)
-  ;; display-timeより先にsetしておかないとdefaultの書式?になる workaround
+  ;; this needs before display-time
   (setq display-time-string-forms
     '((format "%s/%s/%s" year month day)
       (format "(%s:%s)" 24-hours minutes)))
-  (display-time) ;; display-time-stringの有効化
-  ;; タイトルバーの書式設定 global-mode-stringにdisplay-time-stringが入っている
-  ;; バッファがファイルのときはフルパス、でなければバッファ名表示
-  ;; if(buffer-file-name) の評価がsetq時で終わらないよう:eval
+  (display-time) ;; valid display-time-string
   (setq frame-title-format '("" global-mode-string
                              (:eval (if (buffer-file-name) " %f" " %b"))) ) )
 
@@ -157,7 +152,7 @@
 (setq-default tab-width 4 indent-tabs-mode nil)
 
 
-;; buffer の最後でカーソルを動かそうとしても音をならなくする
+;; buffer no sounds
 (defun next-line (arg)
   (interactive "p")
   (condition-case nil
@@ -232,8 +227,6 @@
 ;;   :tag "builtin" "internal"
 ;;   :custom `((auto-save-list-file-prefix . ,(locate-user-emacs-file "backup/.saves-"))))
 
-
-
 ;; ;; ;; flycheck
 (leaf flycheck
   :doc "On-the-fly syntax checking"
@@ -246,7 +239,7 @@
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
 
-;; company (入力補完)
+;; company (automate completion)
 (leaf company
   :doc "Modular text completion framework"
   ;;:req "emacs-24.3"
@@ -286,13 +279,13 @@
 ;;(add-to-list 'default-frame-alist '(background-color . "white"))
 
 ;; https://github.com/emacs-jp/emacs-jp.github.com/issues/38
-(setq-default indicate-empty-lines t)  
+(setq-default indicate-empty-lines t)
 (when (require 'hiwin nil t)
-  (hiwin-activate)                            ;; hiwin-modeを有効化
-(set-face-background 'hiwin-face "gray10"))  ;; 非アクティブバッファの背景色を設定
+  (hiwin-activate)                            ;; valid hiwin-mode
+(set-face-background 'hiwin-face "gray10"))  ;; decide the color non-valid buffers
 
 ;; (when (require 'fill-column-indicator nil t)
-;;   (setq fci-rule-color "gray")  ;; 縦線の色
+;;   (setq fci-rule-color "gray")  ;; 
 ;;   (define-globalized-minor-mode global-fci-mode fci-mode turn-on-fci-mode)
 ;;   (global-fci-mode)
 ;;   )
@@ -308,32 +301,8 @@
   :tag "builtin" "faces" "help"
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
-
-(leaf oj
-  :ensure t
-  :custom ((oj-default-online-judge . 'codeforces)))
-(leaf oj
-  :ensure t
-  :custom ((oj-default-online-judge . 'atcoder)))
-
-(leaf oj
-  :doc "Competitive programming tools client for AtCoder, Codeforces"
-  :req "emacs-26.1" "quickrun-2.2"
-  :tag "convenience" "emacs>=26.1"
-  :url "https://github.com/conao3/oj.el"
-  :emacs>= 26.1
-  :ensure t
-  :custom ((oj-compiler-c . "gcc")
-           (oj-compiler-python . "cpython")
-           (oj-default-online-judge . 'atcoder)
-           (oj-shell-program . "zsh")
-           (oj-home-dir . "/home/hide/デスクトップ/myproject20220217/oj")
-           ))
-
-
 (setq mozc-candidate-style 'echo-area)
 (setq skk-show-annotation nil)
-
 
 ;; flycheck
 (use-package flycheck  
@@ -352,3 +321,143 @@
 (with-eval-after-load 'flycheck
   (flycheck-grammarly-setup))
 (add-hook 'yatex-mode-hook 'flymake-grammarly-load)
+
+;; dont make buckup files etc
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq
+;; the number of scroll lines you can decide 
+mouse-wheel-scroll-amount '(1 ((shift) . 2) ((control)))
+;; ignore the speed
+mouse-wheel-progressive-speed nil)
+
+
+;;;----------------------------------------------------------------------------------------------------
+;;;----------------------------------------------------------------------------------------------------
+;;;----------------------------------------------------------------------------------------------------
+;;;----------------------------------------------------------------------------------------------------
+;;; p4-mode.el --- Support for the P4_16 programming language
+;;; This file is still incomplete
+
+;; Copyright (C) 2016- Barefoot Networks
+;; Version: 1.2
+;; Keywords: languages p4
+;; Homepage: http://p4.org
+
+;; This file is not part of GNU Emacs.
+;; This file is free software…
+
+;; Placeholder for user customization code
+(defvar p4-mode-hook nil)
+
+;; Define the keymap (for now it is pretty much default)
+(defvar p4-mode-map
+  (let ((map (make-keymap)))
+    (define-key map "\C-j" 'newline-and-indent)
+    map)
+  "Keymap for P4 major mode")
+
+;; Syntactic HighLighting
+
+;; Main keywors (declarations and operators)
+(setq p4-keywords
+      '("action" "apply" "const" "control"
+        "else" "extern" "if" "parser" "package"
+        "return" "select" "state" "switch" "table"
+        "transition" "typedef" "type" "value_set"
+        ))
+
+(setq p4-attributes
+      '("actions" "in" "inout" "key" "out"
+        ))
+
+(setq p4-constants
+      '("false" "true" "default"))
+
+(setq p4-types
+      '("bool" "bit" "enum" "error" "header" "header_union"
+        "int" "match_kind" "struct" "varbit" "void"))
+
+(setq p4-cpp
+      '("#include"
+        "#define" "#undef"
+        "#if" "#ifdef" "#elif" "#else" "#endif" "defined"
+        "#line"))
+
+(setq p4-cppwarn
+      '("error" "warning"))
+
+;; Optimize the strings
+(setq p4-keywords-regexp   (regexp-opt p4-keywords   'words))
+(setq p4-attributes-regexp (regexp-opt p4-attributes 'words))
+(setq p4-constants-regexp  (regexp-opt p4-constants  'words))
+(setq p4-types-regexp      (regexp-opt p4-types      'words))
+(setq p4-cpp-regexp        (regexp-opt p4-cpp        'words))
+(setq p4-cppwarn-regexp    (regexp-opt p4-cppwarn    'words))
+
+
+;; create the list for font-lock.
+;; each category of keyword is given a particular face
+(defconst p4-font-lock-keywords
+  (list
+   (cons p4-types-regexp       font-lock-type-face)
+   (cons p4-constants-regexp   font-lock-constant-face)
+   (cons p4-attributes-regexp  font-lock-builtin-face)
+   (cons p4-keywords-regexp    font-lock-keyword-face)
+   (cons p4-cpp-regexp         font-lock-preprocessor-face)
+   (cons p4-cppwarn-regexp     font-lock-warning-face)
+   (cons "\\('\\w*'\\)"        font-lock-variable-name-face)
+   )
+  "Default Highlighting Expressions for P4")
+
+(defvar p4-mode-syntax-table
+  (let ((st (make-syntax-table)))
+    (modify-syntax-entry  ?_  "w"      st)
+    (modify-syntax-entry  ?/  ". 124b" st)
+    (modify-syntax-entry  ?*  ". 23"   st)
+    (modify-syntax-entry  ?\n  "> b"   st)
+    st)
+  "Syntax table for p4-mode")
+
+;;; Indentation
+(defvar p4-indent-offset 4
+  "Indentation offset for `p4-mode'.")
+
+(defun p4-indent-line ()
+  "Indent current line for any balanced-paren-mode'."
+  (interactive)
+  (let ((indent-col 0)
+        (indentation-increasers "[{]")
+        (indentation-decreasers "[}]")
+        )
+    (save-excursion
+      (beginning-of-line)
+      (condition-case nil
+          (while t
+            (backward-up-list 1)
+            (when (looking-at indentation-increasers)
+              (setq indent-col (+ indent-col p4-indent-offset))))
+        (error nil)))
+    (save-excursion
+      (back-to-indentation)
+      (when (and (looking-at indentation-decreasers) (>= indent-col p4-indent-offset))
+        (setq indent-col (- indent-col p4-indent-offset))))
+    (indent-line-to indent-col)))
+
+
+;; Put everything together
+(defun p4-mode ()
+  "Major mode for editing P4 v1.2 programs"
+  (interactive)
+  (kill-all-local-variables)
+  (set-syntax-table p4-mode-syntax-table)
+  (use-local-map p4-mode-map)
+  (set (make-local-variable 'font-lock-defaults) '(p4-font-lock-keywords))
+  (set (make-local-variable 'indent-line-function) 'p4-indent-line)
+  (setq major-mode 'p4-mode)
+  (setq mode-name "P4")
+  (run-hooks 'p4-mode-hook)
+)
+
+;; The most important line
+(provide 'p4-mode)
