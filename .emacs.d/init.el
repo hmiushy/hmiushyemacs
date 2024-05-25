@@ -263,3 +263,8 @@ mouse-wheel-scroll-amount '(1 ((shift) . 2) ((control)))
 mouse-wheel-progressive-speed nil)
 
 (load "~/.emacs.d/p4-mode.el")
+
+;; good vibes the color of window
+(load-theme 'zenburn t)
+(set-face-attribute 'highlight nil :foreground 'unspecified)
+
