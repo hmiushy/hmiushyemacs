@@ -86,11 +86,9 @@
 
 (straight-use-package 'use-package)
 (straight-use-package 'leaf)
-(straight-use-package 'flycheck)
 (straight-use-package 'popwin)
 (straight-use-package 'yasnippet)
 (straight-use-package 'ido-vertical-mode)
-(straight-use-package 'flycheck-grammarly)
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'auto-complete)
 (straight-use-package 'xcscope)
@@ -165,11 +163,6 @@
   :defvar (c-basic-offset)
   :bind (c-mode-base-map
          ("C-c c" . compile))
-  ;; :mode-hook
-  ;; (c-mode-hook . ((c-set-style "bsd")
-  ;;                 (setq c-basic-offset 4)))
-  ;; (c++-mode-hook . ((c-set-style "bsd")
-  ;;                   (setq c-basic-offset 4)))
   )
 
 (defun my-c-c++-mode-init ()
@@ -202,24 +195,6 @@
            (kill-whole-line . t)
            (eval-expression-print-length . nil)
            (eval-expression-print-level . nil)))
-;; startup
-;; (leaf startup
-;;   :doc "process Emacs shell arguments"
-;;   :tag "builtin" "internal"
-;;   :custom `((auto-save-list-file-prefix . ,(locate-user-emacs-file "backup/.saves-"))))
-
-;; ;; ;; flycheck
-(leaf flycheck
-  :doc "On-the-fly syntax checking"
-  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-28.1"
-  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
-  :url "http://www.flycheck.org"
-  :emacs>= 24.3
-  :ensure t
-  :bind (("M-n" . flycheck-next-error)
-         ("M-p" . flycheck-previous-error))
-  :global-minor-mode global-flycheck-mode)
-
 
 ;; https://github.com/emacs-jp/emacs-jp.github.com/issues/38
 (setq-default indicate-empty-lines t)
@@ -235,23 +210,6 @@
 (setq mozc-candidate-style 'echo-area)
 (setq skk-show-annotation nil)
 
-;; flycheck
-(use-package flycheck  
-  :init
-  (add-hook 'yatex-mode-hook 'flycheck-mode)
-  :config
-  (global-flycheck-mode t)
-  )
-;; flycheck-grammarly
-(use-package flycheck-grammarly  
-  :ensure t  
-  :after flycheck  
-  :config  
-  (setq flycheck-grammarly-check-time 0.8)  
-  (add-to-list 'flycheck-checkers 'grammarly))
-(with-eval-after-load 'flycheck
-  (flycheck-grammarly-setup))
-(add-hook 'yatex-mode-hook 'flymake-grammarly-load)
 
 ;; dont make buckup files etc
 (setq make-backup-files nil)
@@ -267,4 +225,38 @@ mouse-wheel-progressive-speed nil)
 ;; good vibes the color of window
 (load-theme 'zenburn t)
 (set-face-attribute 'highlight nil :foreground 'unspecified)
+
+
+;;(straight-use-package 'flycheck)
+;;(straight-use-package 'flycheck-grammarly)
+
+;; ;; ;; flycheck
+;; (leaf flycheck
+;;  :doc "On-the-fly syntax checking"
+;;  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-28.1"
+;;  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
+;;  :url "http://www.flycheck.org"
+;;  :emacs>= 24.3
+;;  :ensure t
+;;  :bind (("M-n" . flycheck-next-error)
+;;         ("M-p" . flycheck-previous-error))
+;;  :global-minor-mode global-flycheck-mode)
+
+;; flycheck
+;;(use-package flycheck  
+;;  :init
+;;  (add-hook 'yatex-mode-hook 'flycheck-mode)
+;;  :config
+;;  (global-flycheck-mode t)
+;;  )
+;; flycheck-grammarly
+;;(use-package flycheck-grammarly  
+;;  :ensure t  
+;;  :after flycheck  
+;;  :config  
+;;  (setq flycheck-grammarly-check-time 0.8)  
+;;  (add-to-list 'flycheck-checkers 'grammarly))
+;;(with-eval-after-load 'flycheck
+;;  (flycheck-grammarly-setup))
+;;(add-hook 'yatex-mode-hook 'flymake-grammarly-load)
 
