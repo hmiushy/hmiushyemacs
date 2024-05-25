@@ -22,7 +22,7 @@ sudo apt-get install emacs26 # (or emacs2*)
 sudo update-alternatives --config emacs
 ```
 And switch to version 26.
-## Memo of error
+# Memo of error
 sudo apt update <br>
 [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
 ```bash
@@ -34,7 +34,7 @@ cp /etc/resolv.conf ./ # backup
 ```
 
 ## error `W : Target * is configured multiple times *`
-### memo [ref](https://askubuntu.com/questions/760896/how-can-i-fix-apt-error-w-target-packages-is-configured-multiple-times)
+## memo [ref](https://askubuntu.com/questions/760896/how-can-i-fix-apt-error-w-target-packages-is-configured-multiple-times)
 ```bash
 sudo apt install python3-apt
 wget https://github.com/davidfoerster/aptsources-cleanup/releases/tag/v0.1.7.5.2/aptsources-cleanup.pyz
