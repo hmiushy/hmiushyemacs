@@ -93,6 +93,7 @@
 (straight-use-package 'flycheck-grammarly)
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'auto-complete)
+(straight-use-package 'xcscope)
 (require 'auto-complete-config)
 (ac-config-default)
 ;; Research completion
@@ -260,3 +261,5 @@
 mouse-wheel-scroll-amount '(1 ((shift) . 2) ((control)))
 ;; ignore the speed
 mouse-wheel-progressive-speed nil)
+
+(load "~/.emacs.d/p4-mode.el")
