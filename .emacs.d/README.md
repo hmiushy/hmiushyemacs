@@ -5,8 +5,8 @@
 | C-o | change the buffer to right |
 | C-q | change the another window |
 ## Requirement?
-- `Flycheck: emacs26`
-- `straight: emacs25`
+- Flycheck: emacs26
+- [straight](https://github.com/radian-software/straight.el): emacs25?
 ## If installed emacs24, Getting emacs26 or something
 1. add repo
 ```bash
