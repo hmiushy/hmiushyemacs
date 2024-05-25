@@ -58,28 +58,6 @@
 ;; tab
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-
-;; tab
-;;(setq c-tab-always-indent nil)
-;; c++?
-;; (defun my-c-c++-mode-init()
-;;   (setq c-basic-offset 4))
-
-;;(load (expand-file-name "~/.emacs.d/init.el"))
-;;(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; '(package-selected-packages
-;;   '(markdown-mode mozc eglot lsp-clients lsp-clisents company-lsp lsp-company company lsp-ui lsp-mode flycheck yatex leaf use-package)))
-;;(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; )
-
 (require 'package)
 (autoload 'package-run "package")
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -109,12 +87,14 @@
 (straight-use-package 'use-package)
 (straight-use-package 'leaf)
 (straight-use-package 'flycheck)
-(straight-use-package 'company)
 (straight-use-package 'popwin)
 (straight-use-package 'yasnippet)
 (straight-use-package 'ido-vertical-mode)
 (straight-use-package 'flycheck-grammarly)
-
+(straight-use-package 'zenburn-theme)
+(straight-use-package 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
 ;; Research completion
 (require 'ido-vertical-mode)
 (ido-mode 1)
@@ -239,62 +219,12 @@
          ("M-p" . flycheck-previous-error))
   :global-minor-mode global-flycheck-mode)
 
-;; company (automate completion)
-(leaf company
-  :doc "Modular text completion framework"
-  ;;:req "emacs-24.3"
-  :req "emacs-28.1"
-  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
-  :url "http://company-mode.github.io/"
-  :emacs>= 24.3
-  :ensure t
-  :leaf-defer nil
-  :bind ((company-active-map
-          ("M-n" . nil)
-          ("M-p" . nil)
-          ("C-s" . company-filter-candidates)
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)
-          ("<tab>" . company-complete-selection))
-         (company-search-map
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)))
-  :custom ((company-idle-delay . 0)
-           (company-minimum-prefix-length . 1)
-           (company-transformers . '(company-sort-by-occurrence)))
-  :global-minor-mode global-company-mode)
-
-(leaf company-c-headers
-  :doc "Company mode backend for C/C++ header files"
-  :req "emacs-24.1" "company-0.8"
-  :tag "company" "development" "emacs>=24.1"
-;;  :added "2020-03-25"
-  :emacs>= 24.1
-  :ensure t
-  :after company
-  :defvar company-backends
-  :config
-  (add-to-list 'company-backends 'company-c-headers))
-
-;;(add-to-list 'default-frame-alist '(background-color . "white"))
 
 ;; https://github.com/emacs-jp/emacs-jp.github.com/issues/38
 (setq-default indicate-empty-lines t)
 (when (require 'hiwin nil t)
   (hiwin-activate)                            ;; valid hiwin-mode
 (set-face-background 'hiwin-face "gray10"))  ;; decide the color non-valid buffers
-
-;; (when (require 'fill-column-indicator nil t)
-;;   (setq fci-rule-color "gray")  ;; 
-;;   (define-globalized-minor-mode global-fci-mode fci-mode turn-on-fci-mode)
-;;   (global-fci-mode)
-;;   )
-;; 2023 cmnt out ====================================================================================================
-;; (when (string= system-type "darwin")
-;;   (setq dired-use-ls-dired t
-;;         insert-directory-program "/usr/local/bin/gls"
-;;         dired-listing-switches "-aBhl --group-directories-first"))
-;; 2023 cmnt out ====================================================================================================
 
 (leaf cus-edit
   :doc "tools for customizing Emacs and Lisp packages"
