@@ -263,3 +263,6 @@ mouse-wheel-progressive-speed nil)
 ;;  (flycheck-grammarly-setup))
 ;;(add-hook 'yatex-mode-hook 'flymake-grammarly-load)
 
+;;; 複数行移動
+(global-set-key "\M-n" (kbd "C-u 5 C-n"))
+(global-set-key "\M-p" (kbd "C-u 5 C-p"))
