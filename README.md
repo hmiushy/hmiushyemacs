@@ -163,7 +163,7 @@ init.el
 (load "~/.emacs.d/mytex.el")
 ```
 
-## mytex.el
+mytex.el
 ```
 ;;
 ;; YaTeX
