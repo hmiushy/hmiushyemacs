@@ -145,3 +145,15 @@ cp -r hmiushyemacs/.emacs.d $HOME
 emacs &
 rm -rf hmiushyemacs
 ```
+
+## Yatex
+```
+...
+...
+;;
+;; YaTeX
+;;
+(straight-use-package 'yatex)
+(add-to-list 'load-path "~/.emacs.d/straight/repos/yatex")
+(load "~/.emacs.d/mytex.el")
+```
