@@ -160,6 +160,9 @@ init.el
 (straight-use-package 'yatex)
 (add-to-list 'load-path "~/.emacs.d/straight/repos/yatex")
 (load "~/.emacs.d/mytex.el")
+(setq YaTeX-kanji-code 4   ; 1: SJIS, 2: JIS, 3: EUC, 4: UTF-8
+      YaTeX-latex-message-code 'utf-8  ; 文字化けしないようにする
+      )
 ```
 
 mytex.el
