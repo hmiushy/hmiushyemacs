@@ -107,3 +107,24 @@ EOF
 sudo python3 apt-remove-duplicate-source-entries.py 
 ```
 
+## Memo: 日本語フォント関連
+Ubuntuコマンド
+```
+sudo apt install -y emacs-mozc emacs-mozc-bin
+sudo apt install -y fonts-ipafont
+fc-cache -fv
+```
+init.elに追加
+```
+...
+...
+(straight-use-package 'mozc) ;
+;;; mozc
+(require 'mozc)                                 ; 
+(set-language-environment "Japanese")           ; 
+(setq default-input-method "japanese-mozc")     ; 
+(prefer-coding-system 'utf-8)                   ;
+
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+```
+
