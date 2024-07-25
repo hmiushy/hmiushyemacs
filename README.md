@@ -149,7 +149,6 @@ rm -rf hmiushyemacs
 ## Yatex
 Ubuntu
 ```
-sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince
 ```
 init.el
 ```
