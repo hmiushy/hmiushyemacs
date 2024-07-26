@@ -128,6 +128,13 @@ init.elに追加
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 ```
 
+## mozc
+```
+sudo apt install -y mozc-ibus
+sudo apt install -y mozc-utils-gui (?)
+/usr/lib/mozc/mozc_tool --mode=config_dialog # setting
+```
+
 ## get_emacs.sh
 ```
 #!/bin/bash
