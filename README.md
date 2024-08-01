@@ -303,3 +303,8 @@ mytex.el
              (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
              (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
 ```
+
+
+## 機械学習環境設定
+<a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">1</a> <br>
+<a href="https://qiita.com/nujust/items/d7cd395baa0c5dc94fc5">2</a>
