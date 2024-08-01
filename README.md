@@ -22,6 +22,23 @@ sudo apt-get install emacs26 # (or emacs2*)
 sudo update-alternatives --config emacs
 ```
 And switch to version 26.
+## Bash script
+```bash
+#!/bin/bash
+set -eu
+
+## Get emacs28
+sudo add-apt-repository ppa:kelleyk/emacs -y
+sudo apt-get update
+sudo apt-get install emacs28 -y
+
+## Get original setting by using git
+sudo apt install git -y
+git clone https://github.com/hmiushy/hmiushyemacs
+cp -r hmiushyemacs/.emacs.d $HOME
+emacs &
+rm -rf hmiushyemacs
+```
 # Memo of error
 sudo apt update <br>
 [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
