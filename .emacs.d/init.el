@@ -266,3 +266,35 @@ mouse-wheel-progressive-speed nil)
 ;;; 複数行移動
 (global-set-key "\M-n" (kbd "C-u 5 C-n"))
 (global-set-key "\M-p" (kbd "C-u 5 C-p"))
+
+;;
+;; Mozc
+;; 
+;; First, Install mozc by command to use Japanese
+;; sudo apt install -y mozc-ibus
+;; sudo apt install -y mozc-utils-gui (?)
+;; /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
+
+(require 'mozc)                                 ; 
+(set-language-environment "Japanese")           ; 
+(setq default-input-method "japanese-mozc")     ; 
+(prefer-coding-system 'utf-8)                   ;
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+
+;;
+;; YaTeX
+;;
+;; sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince
+;; sudo apt install -y yatex
+(straight-use-package 'yatex)
+(add-to-list 'load-path "~/.emacs.d/straight/repos/yatex")
+(load "~/.emacs.d/mytex.el")
+(setq YaTeX-kanji-code 4   ; 1: SJIS, 2: JIS, 3: EUC, 4: UTF-8
+      YaTeX-latex-message-code 'utf-8  ; 文字化けしないようにする
+      )
+
+;;; 一行が 100 字以上になった時には自動改行する
+(setq fill-column 100)
+(setq text-mode-hook 'turn-on-auto-fill)
+(setq yatex-mode-hook 'turn-on-auto-fill)
+(setq default-major-mode 'text-mode)
