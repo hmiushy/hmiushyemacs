@@ -151,6 +151,24 @@ sudo apt install -y ibus-mozc
 sudo apt install -y mozc-utils-gui # (?)
 /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
 ```
+### Error
+```
+Warning (initialization): An error occurred while loading '*':
+
+File is missing: Cannot open load file, No such file or directory, mozc
+
+To ensure normal operation, you should investigate and remove the
+cause of the error in your initialization file.  Start Emacs with
+the ‘--debug-init’ option to view a complete error backtrace. Disable showing Disable logging
+```
+Solution
+```bash
+emacs &           ## Open emacs
+M-x list-packages ## M-x = Alt + x
+C-s mozc          ## C-s = Ctrl + s
+i                 ## Check 
+x                 ## Install
+```
 
 ## get_emacs.sh
 ```
