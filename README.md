@@ -146,9 +146,9 @@ init.elに追加
 ```
 
 ## mozc
-```
-sudo apt install -y mozc-ibus
-sudo apt install -y mozc-utils-gui (?)
+```bash
+sudo apt install -y ibus-mozc
+sudo apt install -y mozc-utils-gui # (?)
 /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
 ```
 
