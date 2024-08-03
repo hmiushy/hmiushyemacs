@@ -308,3 +308,6 @@ mytex.el
 ## 機械学習環境設定
 <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">1</a> <br>
 <a href="https://qiita.com/nujust/items/d7cd395baa0c5dc94fc5">2</a>
+
+## MATLAB
+<a href="https://jp.mathworks.com/matlabcentral/answers/1619455-matlab-unable-to-install-r2021b-unable-to-write-to-selected-folder-in-ubuntu-20-04"> Matlab unable to install R2021b: "unable to write to selected folder" in Ubuntu 20.04 </a>
