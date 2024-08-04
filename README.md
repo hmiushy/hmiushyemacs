@@ -308,7 +308,9 @@ mytex.el
 ## 機械学習環境設定
 <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">1</a> <br>
 <a href="https://qiita.com/nujust/items/d7cd395baa0c5dc94fc5">2</a>
-
+### Ubuntu-18.04
+<a href="https://qiita.com/ReoNagai/items/bafeceab77642ca9bc9e">Geforce RTX2080 SUPER を搭載したUbuntu18.04のPCでCUDA・Nvida-Driver・cuDNNの環境を整える</a>
+<a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal">CUDA Toolkit 10.0 Download</a>
 ## MATLAB
 <a href="https://jp.mathworks.com/matlabcentral/answers/1619455-matlab-unable-to-install-r2021b-unable-to-write-to-selected-folder-in-ubuntu-20-04"> Matlab unable to install R2021b: "unable to write to selected folder" in Ubuntu 20.04 </a>
 ## Install xrdp to Ubuntu-22.04
