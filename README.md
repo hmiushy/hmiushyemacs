@@ -17,6 +17,11 @@ sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt-get update
 sudo apt-get install emacs26 # (or emacs2*)
 ```
+
+```bash
+sudo apt-get update
+sudo apt-get install emacs28
+```
 ## If already installed emacs,
 ```bash
 sudo update-alternatives --config emacs
