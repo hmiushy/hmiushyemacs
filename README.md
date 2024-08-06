@@ -322,8 +322,15 @@ sudo reboot -h now
 ```
 ### CUDA toolkit
 `nvidia-smi`コマンドでCUDA Versionを調べ，<a href="https://developer.nvidia.com/cuda-toolkit-archive">ここ</a>でそのバージョンを見つけサイトに従いインストール
-
-<a href="https://qiita.com/reoring/items/506399b8489517c1129f">Ubuntuでnvidiaのエラーが出たときのなおしかた</a>
+パスを通す
+```bash
+## .bashrc内
+export PATH=/usr/local/cuda-*/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda-*/lib64:${LD_LIBRARY_PATH}
+```
+### cuDNN
+### Memo
+<a href="https://qiita.com/reoring/items/506399b8489517c1129f">Ubuntuでnvidiaのエラーが出たときのなおしかた</a><br>
 <a href="https://qiita.com/middle_aged_rookie_programmer/items/0eb574e92a52c923e7ec">Ubuntuにpyenvをインストールする</a>
 ### WSL
 <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">WSL での ML の GPU アクセラレーションの概要</a> <br>
