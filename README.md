@@ -321,7 +321,7 @@ sudo apt install nvidia-driver-*
 sudo reboot -h now
 ```
 ### CUDA toolkit
-`nvidia-smi`コマンドでCUDA Versionを調べ，<a href="https://developer.nvidia.com/cuda-toolkit-archive">ここ</a>でそのバージョンを見つけサイトに従いインストール
+`nvidia-smi`コマンドでCUDA Versionを調べ，<a href="https://developer.nvidia.com/cuda-toolkit-archive">ここ</a>でそのバージョンを見つけサイトに従いインストール<br>
 パスを通す
 ```bash
 ## .bashrc内
