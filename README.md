@@ -4,9 +4,11 @@
 | C-j | change the buffer to left |
 | C-o | change the buffer to right |
 | C-q | change the another window |
+
 ## Requirement?
 - Flycheck: emacs26
 - [straight](https://github.com/radian-software/straight.el): emacs25?
+  
 ## If installed emacs24, Getting emacs26 or something
 1. add repo
 ```bash
@@ -22,11 +24,13 @@ sudo apt-get install emacs26 # (or emacs2*)
 sudo apt-get update
 sudo apt-get install emacs28
 ```
+
 ## If already installed emacs,
 ```bash
 sudo update-alternatives --config emacs
 ```
 And switch to version 26.
+
 ## Bash script
 ```bash
 #!/bin/bash
@@ -44,6 +48,7 @@ cp -r hmiushyemacs/.emacs.d $HOME
 emacs &
 rm -rf hmiushyemacs
 ```
+
 # Memo of error
 sudo apt update <br>
 [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
@@ -128,7 +133,10 @@ if __name__ == '__main__':
 EOF
 sudo python3 apt-remove-duplicate-source-entries.py 
 ```
-
+## Memo: 日本語フォルダ名を英語に
+```bash
+LANG=C xdg-user-dirs-gtk-update
+```
 ## Memo: 日本語フォント関連
 Ubuntuコマンド
 ```
