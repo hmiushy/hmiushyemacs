@@ -142,7 +142,8 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
    pyenv install 3.8.6 # "3.8.6"はなんでもOK
    pyenv global 3.8.6
    ```
-<a href="https://qiita.com/middle_aged_rookie_programmer/items/0eb574e92a52c923e7ec">Ubuntuにpyenvをインストールする</a>
+<a href="https://qiita.com/middle_aged_rookie_programmer/items/0eb574e92a52c923e7ec">Ubuntuにpyenvをインストールする</a><br>
+
 5. Test
 <a href="https://docs.nvidia.com/deeplearning/cudnn/latest/installation/linux.html">ここ</a>に従いテストしてみる
 
