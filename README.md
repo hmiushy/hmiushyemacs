@@ -6,6 +6,7 @@
 | C-q | change the another window |
   
 # Install emacs-28
+-----
 - Add repo
 
 ```bash
