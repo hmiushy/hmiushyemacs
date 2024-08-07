@@ -1,4 +1,5 @@
 # My emacs setting
+---
 | Command | mean |
 | ---- | ---- |
 | C-j | change the buffer to left |
@@ -48,6 +49,7 @@ rm -rf hmiushyemacs
 ```
 
 # mozc，フォント関連
+---
 - 日本語関係インストール?
 ```bash
 sudo apt install -y ibus-mozc
@@ -84,6 +86,7 @@ LANG=C xdg-user-dirs-gtk-update
 ```
 
 # Yatex
+---
 - 端末を開いてコマンドでインストール
 ```bash
 sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince
@@ -105,6 +108,7 @@ sudo apt install -y yatex
 ```
 
 # 機械学習環境設定
+---
 - ドライバ
 下記コマンドでRecommendedのドライバをインストール
 ```
@@ -127,6 +131,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda-*/lib64:${LD_LIBRAR
 
 
 # Ubuntuにpyenvをインストール
+---
 - 依存関係インストール
 ```bash
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git
@@ -163,6 +168,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
 
 # Memo
+---
 <a href="https://qiita.com/reoring/items/506399b8489517c1129f">Ubuntuでnvidiaのエラーが出たときのなおしかた</a><br>
 ## Memo > WSL
 <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">WSL での ML の GPU アクセラレーションの概要</a> <br>
