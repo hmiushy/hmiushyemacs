@@ -6,22 +6,29 @@
 | C-q | change the another window |
   
 # Install emacs-28
-1. add repo
+- Add repo
+
 ```bash
 sudo add-apt-repository ppa:kelleyk/emacs
 ```
-2. update and install
+
+- Update and install
+
 ```bash
 sudo apt-get update
 sudo apt-get install emacs28
+
 ```
 ## If already installed emacs,
+
 ```bash
 sudo update-alternatives --config emacs
+
 ```
 And switch to version 26.
 
 ## Bash script summary
+
 ```bash
 #!/bin/bash
 set -eu
