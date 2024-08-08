@@ -62,6 +62,12 @@
   LANG="en_US.UTF-8"
   LANGUAGE="en_US:en"
   ```
+- 句読点の変更
+  Mozc設定ツールをインストール
+  ```
+  sudo apt install mozc-utils-gui -y
+  ```
+  Mozc設定ツールをアクティビティから開いた後，簡単に変更可能
 
 - xrdpインストール
   
