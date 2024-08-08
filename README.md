@@ -11,7 +11,7 @@
   sudo add-apt-repository ppa:kelleyk/emacs
   ```
 
-  - Update and install
+- Update and install
   ```bash
   sudo apt-get update
   sudo apt-get install emacs28
@@ -67,7 +67,7 @@
   ```bash
   # XRDP系をインストール
   sudo apt install xrdp xserver-xorg-core xorgxrdp -y
-  
+- 設定
   # 設定1
   cat <<EOF > ~/.xsessionrc
   export GNOME_SHELL_SESSION_MODE=ubuntu
@@ -109,7 +109,7 @@
   ```
 
 # mozc，フォント関連
-  - 日本語関係インストール?
+- 日本語関係インストール?
   ```bash
   sudo apt install -y ibus-mozc
   sudo apt install -y mozc-utils-gui # (?)
@@ -122,7 +122,7 @@
   sudo apt install -y fonts-ipafont
   fc-cache -fv
   ```
-  - Mozcをemacs環境にインストール
+- Mozcをemacs環境にインストール
   ```bash
   emacs &           ## Open emacs
   M-x list-packages ## M-x = Alt + x
@@ -201,8 +201,7 @@
   . .bashrc
   ```
 
-- python環境構築など
-   - python系を調べ，インストール，反映
+- python系を調べ，インストール，反映
    ```
    pyenv install --list
    pyenv install 3.8.6 # "3.8.6"はなんでもOK
@@ -212,6 +211,7 @@
   <a href="https://qiita.com/middle_aged_rookie_programmer/items/0eb574e92a52c923e7ec">Ubuntuにpyenvをインストールする</a><br>
 
 - Test
+  
   <a href="https://docs.nvidia.com/deeplearning/cudnn/latest/installation/linux.html">ここ</a>に従いテストしてみる
 
 
@@ -334,5 +334,5 @@
           else:
               print('No duplicated entries were found.')
       EOF
-sudo python3 apt-remove-duplicate-source-entries.py 
-```
+      sudo python3 apt-remove-duplicate-source-entries.py 
+      ```
