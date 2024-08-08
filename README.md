@@ -208,7 +208,7 @@
 - python系を調べ，インストール，反映
    ```
    pyenv install --list
-   pyenv install 3.8.6 # "3.8.6"はなんでもOK
+   pyenv install 3.8.6 # "3.8.6"は任意のバージョン
    pyenv global 3.8.6
    ```
    
