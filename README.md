@@ -64,11 +64,12 @@
   ```
 
 - xrdpインストール
+  コマンドでインストール
   ```bash
   # XRDP系をインストール
   sudo apt install xrdp xserver-xorg-core xorgxrdp -y
   ```
-- 設定
+  設定を反映
   ```
   # 設定1
   cat <<EOF > ~/.xsessionrc
