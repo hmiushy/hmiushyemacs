@@ -177,9 +177,10 @@
   `nvidia-smi`コマンドでCUDA Versionを調べ，<a href="https://developer.nvidia.com/cuda-toolkit-archive">ここ</a>でそのバージョンを見つけサイトに従いインストール<br>
   パスを通す
   ```bash
-  - `.bashrc`内
-  export PATH=/usr/local/cuda/bin:${PATH}
-  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda-*/lib64:${LD_LIBRARY_PATH}
+  # .bashrcに追加
+  # *をバージョンに合わせて変更する
+  export PATH=/usr/local/cuda/bin:${PATH} >> .bashrc
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda-*/lib64:${LD_LIBRARY_PATH} >> .bashrc
   ```
 - cuDNN
   <a href="https://developer.nvidia.com/cudnn-downloads">サイト</a>の手順に従う
