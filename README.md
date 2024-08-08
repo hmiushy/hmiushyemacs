@@ -62,7 +62,7 @@
   LANG="en_US.UTF-8"
   LANGUAGE="en_US:en"
   ```
-- 句読点の変更
+- 句読点の変更<br>
   Mozc設定ツールをインストール
   ```
   sudo apt install mozc-utils-gui -y
