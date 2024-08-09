@@ -196,7 +196,7 @@
 - 依存関係インストール
   ```bash
   sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git
-  sudo apt-get install libfreeimage3 libfreeimage-dev # for "FreeImage.h"
+  sudo apt-get install -y libfreeimage3 libfreeimage-dev # for "FreeImage.h"
   ```
 
 - gitでインストール
