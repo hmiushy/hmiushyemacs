@@ -248,17 +248,17 @@
 
 # Memo
   <a href="https://qiita.com/reoring/items/506399b8489517c1129f">Ubuntuでnvidiaのエラーが出たときのなおしかた</a><br>
-- Memo > WSL
+- Memo > WSL <br>
   <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">WSL での ML の GPU アクセラレーションの概要</a> <br>
   <a href="https://qiita.com/nujust/items/d7cd395baa0c5dc94fc5">Ubuntu on WSL2でのDocker Engineの最短インストール手順</a>
-- Memo > Ubuntu-18.04
+- Memo > Ubuntu-18.04 <br>
   <a href="https://qiita.com/ReoNagai/items/bafeceab77642ca9bc9e">Geforce RTX2080 SUPER を搭載したUbuntu18.04のPCでCUDA・Nvida-Driver・cuDNNの環境を整える</a><br>
   <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal">CUDA Toolkit 10.0 Download</a><br>
   <a href="https://shirowanisan.com/entry/2020/11/13/224908#google_vignette">Ubuntu18.04のインストールからGPUで機械学習をするまで</a>
-- Memo > Ubuntu-22.04
-- Memo > MATLAB
+- Memo > Ubuntu-22.04 <br>
+- Memo > MATLAB <br>
   <a href="https://jp.mathworks.com/matlabcentral/answers/1619455-matlab-unable-to-install-r2021b-unable-to-write-to-selected-folder-in-ubuntu-20-04"> Matlab unable to install R2021b: "unable to write to selected folder" in Ubuntu 20.04 </a><br>
-- Install xrdp to Ubuntu-22.04
+- Install xrdp to Ubuntu-22.04 <br>
   <a href="https://orenda.co.jp/blog/rdp-ubuntu%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">[windows + Linux]RDP + Ubuntuを使った開発環境構築</a><br>
   <a href="https://qiita.com/koba-jon/items/019a3b4eac4f60ca89c9">Ubuntu 20.04 LTS インストール方法（外付けドライブ用）</a>
 
@@ -267,22 +267,22 @@
   `sudo apt update`時のエラー <br>
   [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
   ```bash
-  ## Error > memo
+  ## Error > memo <br>
   cp /etc/resolv.conf ./ # backup
   # nameserver 8.8.8.8
   # nameserver 8.8.4.4
   # nameserver 1.1.1.1
   ```
 
-  - Error Memo > error `W : Target * is configured multiple times *`
-    - memo [ref](https://askubuntu.com/questions/760896/how-can-i-fix-apt-error-w-target-packages-is-configured-multiple-times)
+  - Error Memo > error `W : Target * is configured multiple times *` <br>
+    - memo [ref](https://askubuntu.com/questions/760896/how-can-i-fix-apt-error-w-target-packages-is-configured-multiple-times) <br>
       ```bash
       sudo apt install python3-apt
       wget https://github.com/davidfoerster/aptsources-cleanup/releases/tag/v0.1.7.5.2/aptsources-cleanup.pyz
       chmod a+x aptsources-cleanup.pyz
       sudo ./aptsources-cleanup.pyz
       ```
-    - outdated solution
+    - outdated solution <br>
       Crate `apt-remove-duplicate-source-entries.py` and run `sudo python3 apt-remove-duplicate-source-entries.py`.
       ```bash
       cat << EOF > apt-remove-duplicate-source-entries.py
