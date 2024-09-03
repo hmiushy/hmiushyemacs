@@ -360,3 +360,8 @@
       EOF
       sudo python3 apt-remove-duplicate-source-entries.py 
       ```
+- MatplotlibでTime New Romanなどが使えないとき
+  ```
+  sudo apt install msttcorefonts -qq
+  rm ~/.cache/matplotlib -rf
+  ```
