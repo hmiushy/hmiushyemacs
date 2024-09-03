@@ -221,7 +221,20 @@
    
   <a href="https://qiita.com/middle_aged_rookie_programmer/items/0eb574e92a52c923e7ec">Ubuntuにpyenvをインストールする</a><br>
 
-- Test
+- venvで仮想環境
+  ```
+  ## Setup python venv
+  python -m venv .venv
+  ## Activeate
+  . .venv/bin/activate
+
+  ## Install packages
+  pip install -r requirements.txt
+  # or
+  pip install "YouWnatInstallPack"
+  ```
+
+- Test (GPU)
   
   <a href="https://docs.nvidia.com/deeplearning/cudnn/latest/installation/linux.html">ここ</a>に従いテストしてみる
 
