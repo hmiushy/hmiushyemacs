@@ -106,9 +106,11 @@
   - xrdp接続時，画面が真っ暗な場合<br>
   同じユーザですでにUbuntuniログイン済みの場合，真っ暗な画面が表示される．<br>
   Ubuntu側で直接操作し一度ログアウトするか，SSH接続し以下のコマンドでセッションを終了させる．
-  ```bash
-  pkill gnome-session
-  ```
+    ```bash
+    pkill gnome-session
+    ```
+
+  
 - Emacs28をインストール
   ```bash
   # リポジトリ追加
