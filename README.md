@@ -103,7 +103,7 @@
   sudo systemctl restart polkit
   ```
   [参照] <a href="https://orenda.co.jp/blog/rdp-ubuntu%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">[windows + Linux]RDP + Ubuntuを使った開発環境構築</a><br>
-  - xrdp接続時，画面が真っ暗な場合
+  - xrdp接続時，画面が真っ暗な場合<br>
   同じユーザですでにUbuntuniログイン済みの場合，真っ暗な画面が表示される．<br>
   Ubuntu側で直接操作し一度ログアウトするか，SSH接続し以下のコマンドでセッションを終了させる．
   ```bash
