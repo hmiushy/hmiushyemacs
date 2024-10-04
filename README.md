@@ -133,7 +133,11 @@
   sudo apt install -y mozc-utils-gui # (?)
   /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
   ```
-
+- matplotlibでTimes New Romanが使えないとき (Ubuntu)
+  ```bash
+  sudo apt install msttcorefonts -qq
+  rm ~/.cache/matplotlib -rf
+  ```
 - フォント追加 (必要ないかも)
   ```bash
   sudo apt install -y emacs-mozc emacs-mozc-bin
