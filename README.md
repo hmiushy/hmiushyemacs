@@ -289,17 +289,18 @@
 
 
 # Error memo
-  Emacs: `package--check-signature: Failed to verify signature 
-   ascii-art-to-unicode-1.9.el.sig: ("No public key 
-   for 474F05837FBDEF9B created at 2014-09-24T16:20:01+0200 
-   using DSA")` <br>
+  - Emacs: `package--check-signature: Failed to verify signature 
+    ascii-art-to-unicode-1.9.el.sig: ("No public key 
+    for 474F05837FBDEF9B created at 2014-09-24T16:20:01+0200 
+    using DSA")` <br>
    [ref](https://emacs.stackexchange.com/questions/233/how-to-proceed-on-package-el-signature-check-failure)
    ```bash
-    1. Set `package-check-signature` to `nil`, e.g., `M-: (setq package-check-signature nil)` RET.
-    2. Download the package `gnu-elpa-keyring-update` and run the function with the same name, e.g., `M-x package-install` RET `gnu-elpa-keyring-update` RET.
-    3. Reset `package-check-signature` to the default value `allow-unsigned`, e.g., `M-: (setq package-check-signature 'allow-unsigned)` RET.
+    # Emacs
+    1. `M-: (setq package-check-signature nil)` RET.
+    2. `M-x package-install` RET `gnu-elpa-keyring-update` RET.
+    3. `M-: (setq package-check-signature 'allow-unsigned)` RET.
    ```
-  `sudo apt update`時のエラー <br>
+  - `sudo apt update`時のエラー <br>
   [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
   ```bash
   ## Error > memo <br>
