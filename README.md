@@ -38,6 +38,16 @@
   emacs &
   rm -rf hmiushyemacs
   ```
+- Additional
+  - rainbow-mode
+    ```bash
+    (require 'rainbow-mode)
+    (add-hook 'css-mode-hook 'rainbow-mode)
+    (add-hook 'less-mode-hook 'rainbow-mode)
+    (add-hook 'web-mode-hook 'rainbow-mode)
+    (add-hook 'html-mode-hook 'rainbow-mode)
+    (add-hook 'python-mode-hook 'rainbow-mode)
+    ```
 # Ubuntu-22.04インストール後
 - アップデート&アップグレード後，再起動
   ```bash
