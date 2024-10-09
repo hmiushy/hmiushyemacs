@@ -293,22 +293,22 @@
     ascii-art-to-unicode-1.9.el.sig: ("No public key 
     for 474F05837FBDEF9B created at 2014-09-24T16:20:01+0200 
     using DSA")` <br>
-   [ref](https://emacs.stackexchange.com/questions/233/how-to-proceed-on-package-el-signature-check-failure)
-   ```bash
-    # Emacs
-    1. `M-: (setq package-check-signature nil)` RET.
-    2. `M-x package-install` RET `gnu-elpa-keyring-update` RET.
-    3. `M-: (setq package-check-signature 'allow-unsigned)` RET.
-   ```
+     [ref](https://emacs.stackexchange.com/questions/233/how-to-proceed-on-package-el-signature-check-failure)
+     ```bash
+      # Emacs
+      1. `M-: (setq package-check-signature nil)` RET.
+      2. `M-x package-install` RET `gnu-elpa-keyring-update` RET.
+      3. `M-: (setq package-check-signature 'allow-unsigned)` RET.
+     ```
   - `sudo apt update`時のエラー <br>
-  [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
-  ```bash
-  ## Error > memo <br>
-  cp /etc/resolv.conf ./ # backup
-  # nameserver 8.8.8.8
-  # nameserver 8.8.4.4
-  # nameserver 1.1.1.1
-  ```
+    [ref](https://superuser.com/questions/1697045/some-index-files-failed-to-download-they-have-been-ignored-or-old-ones-used-in)
+    ```bash
+    ## Error > memo <br>
+    cp /etc/resolv.conf ./ # backup
+    # nameserver 8.8.8.8
+    # nameserver 8.8.4.4
+    # nameserver 1.1.1.1
+    ```
 
   - Error Memo > error `W : Target * is configured multiple times *` <br>
     - memo [ref](https://askubuntu.com/questions/760896/how-can-i-fix-apt-error-w-target-packages-is-configured-multiple-times) <br>
