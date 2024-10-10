@@ -86,7 +86,7 @@
   # XRDP系をインストール
   sudo apt install xrdp xserver-xorg-core xorgxrdp -y
   ```
-  設定を反映
+  設定を反映 (RDPでログインしたとき，ターミナルの設定がいつもと違う場合などはこれを実行)
   ```
   # 設定1
   cat <<EOF > ~/.xsessionrc
