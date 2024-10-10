@@ -253,7 +253,7 @@
   ## Install packages
   pip install -r requirements.txt
   # or
-  pip install "YouWnatInstallPack"
+  pip install "YouWantoInstallPacks"
   ```
 
 - Test (GPU)
