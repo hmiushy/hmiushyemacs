@@ -39,7 +39,7 @@
   rm -rf hmiushyemacs
   ```
 - Additional
-  - rainbow-mode (エディタ上のカラーコードにその色を付ける)
+  - rainbow-mode (エディタ上のカラーコードにその色を付ける) <br>
     `M-x package-list-packages RET, C-s rainbow-mode, x, i`
     ```bash
     (require 'rainbow-mode)
