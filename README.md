@@ -297,7 +297,24 @@
 - Install xrdp to Ubuntu-22.04 <br>
   <a href="https://orenda.co.jp/blog/rdp-ubuntu%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">[windows + Linux]RDP + Ubuntuを使った開発環境構築</a><br>
   <a href="https://qiita.com/koba-jon/items/019a3b4eac4f60ca89c9">Ubuntu 20.04 LTS インストール方法（外付けドライブ用）</a>
-
+- Windows apache <br>
+  リスタート: `httpd -k restart`
+- WindowsでNASを自動でドライブ割当<br>
+  <a href="https://www.77-lifework.com/entry/nas-startup">参照</a> </br>
+  - コード作成
+    Zドライブにホスト192.168.100.100のshareフォルダを割り当てる場合
+    ```bash
+    On Error Resume Next
+    WScript.sleep 5000
+    Set objNetwork = CreateObject("WScript.Network")
+    objNetWork.MapNetworkDrive"Z:","\\192.168.100.100\share"
+    ```
+    以上のコードを".vbs"拡張子で保存，実行．スタートアップに登録しておくと起動時に自動で実行する．<\br>
+  - スタートアップ登録</br>
+    1. `Windows + R` で"ファイル名を指定して実行"</br>
+    2. `shell:startup`と入力しEnter</br>
+    3. フォルダが開くのでそこに先ほど作成した"*.vbs"ファイルを配置
+    4. 終わり  
 
 # Error memo
   - Emacs: `package--check-signature: Failed to verify signature 
