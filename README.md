@@ -191,6 +191,12 @@
   + LANG="en_US.UTF-8"
   + LANGUAGE="en_US:en"
   ```
+- PythonのMatplotlibにおいて，凡例内のフォントなどを指定 (Memo)
+  ```
+  ...
+  fig.legend(prop={'style':'italic', 'family':'Times New Roman'})
+  ...
+  ```
 
 # 機械学習環境設定
 - ドライバ
