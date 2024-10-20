@@ -289,6 +289,8 @@
   ```
 
 # Memo
+- Tex関係
+  <a href=https://qiita.com/shohirose/items/52f778ebd21f8e5f5c0e>LaTeXにおいて体裁を整える</a><br>
   <a href="https://qiita.com/reoring/items/506399b8489517c1129f">Ubuntuでnvidiaのエラーが出たときのなおしかた</a><br>
 - Memo > WSL <br>
   <a href="https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/gpu-compute">WSL での ML の GPU アクセラレーションの概要</a> <br>
