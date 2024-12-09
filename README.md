@@ -21,7 +21,7 @@
   ```bash
   sudo update-alternatives --config emacs
   ```
-  And switch to version 26.
+  And switch to version 2x.
 - Bash script summary
   ```bash
   #!/bin/bash
@@ -76,10 +76,10 @@
     E: Sub-process /usr/bin/dpkg returned an error code (1)
     ```
     - Solution
-      ```
-      sudo apt remove --autoremove emacs emacs-common
-      sudo apt install emacs28 -y
-      ```
+    ```
+    sudo apt remove --autoremove emacs emacs-common
+    sudo apt install emacs28 -y
+    ```
 
     
 # Ubuntu-22.04インストール後
