@@ -49,6 +49,39 @@
     (add-hook 'html-mode-hook 'rainbow-mode)
     (add-hook 'python-mode-hook 'rainbow-mode)
     ```
+  - Error and Solution
+    - Error  
+    ```
+    home@home:~$ sudo apt install emacs28 -y
+    Reading package lists... Done
+    Building dependency tree       
+    Reading state information... Done
+    The following packages were automatically installed and are no longer required:
+      linux-image-5.4.0-189-generic linux-modules-5.4.0-189-generic
+      linux-modules-extra-5.4.0-189-generic
+    Use 'sudo apt autoremove' to remove them.
+    The following NEW packages will be installed:
+      emacs28
+    0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+    Need to get 0 B/22.5 MB of archives.
+    After this operation, 99.2 MB of additional disk space will be used.
+    (Reading database ... 220826 files and directories currently installed.)
+    Preparing to unpack .../emacs28_28.1~1.git5a223c7f2e-kk3+20.04_amd64.deb ...
+    Unpacking emacs28 (28.1~1.git5a223c7f2e-kk3+20.04) ...
+    dpkg: error processing archive /var/cache/apt/archives/emacs28_28.1~1.git5a223c7f2e-kk3+20.04_amd64.deb (--unpack):
+     trying to overwrite '/usr/include/emacs-module.h', which is also in package emacs-common 1:26.3+1-1ubuntu2
+    dpkg-deb: error: paste subprocess was killed by signal (Broken pipe)
+    Errors were encountered while processing:
+     /var/cache/apt/archives/emacs28_28.1~1.git5a223c7f2e-kk3+20.04_amd64.deb
+    E: Sub-process /usr/bin/dpkg returned an error code (1)
+    ```
+    - Solution
+      ```
+      sudo apt remove --autoremove emacs emacs-common
+      sudo apt install emacs28 -y
+      ```
+
+    
 # Ubuntu-22.04インストール後
 - アップデート&アップグレード後，再起動
   ```bash
