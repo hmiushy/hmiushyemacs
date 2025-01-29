@@ -1,7 +1,11 @@
 # 目次
 1. [Install emacs-28](#emacs28)
-
-2. 
+2. [Ubuntu-22.04インストール後にやるといいこと](#ubuntu22)
+3. [フォント関係(emacsの設定含む)](#font)
+4. [機械学習環境設定](#ml)
+5. [pyenvとvenv](#pyenv)
+6. [Yatexの設定](#yatex)
+7. [Memo](#memo)
 
 
 # My emacs setting
@@ -88,7 +92,7 @@
     sudo apt install emacs28 -y
     ```
 
-    
+<a id="ubuntu22"></a>    
 # Ubuntu-22.04インストール後
 - アップデート&アップグレード後，再起動
   ```bash
@@ -176,7 +180,7 @@
   emacs &
   rm -rf hmiushyemacs
   ```
-
+<a id="font"></a>
 # mozc，フォント関連
 - 日本語関係インストール?
   ```bash
@@ -237,7 +241,7 @@
   fig.legend(prop={'style':'italic', 'family':'Times New Roman'})
   ...
   ```
-
+<a id="ml"></a>
 # 機械学習環境設定
 - ドライバ
   下記コマンドでRecommendedのドライバをインストール
@@ -260,7 +264,7 @@
 - cuDNN
   <a href="https://developer.nvidia.com/cudnn-downloads">サイト</a>の手順に従う
 
-
+<a id="pyenv"></a>
 # Ubuntuにpyenvをインストール
 - 依存関係インストール
   ```bash
@@ -307,7 +311,7 @@
   
   <a href="https://docs.nvidia.com/deeplearning/cudnn/latest/installation/linux.html">ここ</a>に従いテストしてみる
 
-
+<a id="yatex"></a>
 # Yatex
 - 端末を開いてコマンドでインストール
   ```bash
@@ -327,7 +331,7 @@
         YaTeX-latex-message-code 'utf-8  ; 文字化けしないようにする
         )
   ```
-
+<a id="memo"></a>
 # Memo
 - Tex関係
   <a href=https://qiita.com/shohirose/items/52f778ebd21f8e5f5c0e>LaTeXにおいて体裁を整える</a><br>
