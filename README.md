@@ -1,10 +1,17 @@
+# 目次
+1. [Install emacs-28](#emacs28)
+
+2. 
+
+
 # My emacs setting
 | Command | mean |
 | ---- | ---- |
 | C-j | change the buffer to left |
 | C-o | change the buffer to right |
 | C-q | change the another window |
-  
+
+<a id="emacs28"></a>
 # Install emacs-28
 - Add repo
   ```bash
