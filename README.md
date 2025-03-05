@@ -334,7 +334,7 @@
   ```
 <a id="folder"></a>
 # Ubuntuの見た目が変化してしまった
-```
+
 ### **1. テーマやアイコンが削除されたか確認**
 #### **影響を受ける可能性があるパッケージ**
 - `yaru-theme-gtk`
@@ -446,7 +446,7 @@
 - `sudo apt install --reinstall gnome-themes-extra yaru-theme-gtk yaru-theme-icon fonts-kacst fonts-lao` などで一部の削除されたパッケージを復元できる可能性
 
 フォルダの見た目が変わってしまった場合、これらを試す
-```
+
 <a id="memo"></a>
 # Memo
 - Tex関係
