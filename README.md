@@ -5,7 +5,8 @@
 4. [機械学習環境設定](#ml)
 5. [pyenvとvenv](#pyenv)
 6. [Yatexの設定](#yatex)
-7. [Memo](#memo)
+7. [Ubuntuの見た目](#folder)
+8. [Memo](#memo)
 
 
 # My emacs setting
@@ -331,6 +332,121 @@
         YaTeX-latex-message-code 'utf-8  ; 文字化けしないようにする
         )
   ```
+<a id="folder"></a>
+# Ubuntuの見た目が変化してしまった
+```
+### **1. テーマやアイコンが削除されたか確認**
+#### **影響を受ける可能性があるパッケージ**
+- `yaru-theme-gtk`
+- `yaru-theme-icon`
+- `yaru-theme-sound`
+- `gnome-themes-extra`
+- `gnome-themes-extra-data`
+- `gnome-accessibility-themes`
+- `gtk2-engines-murrine`
+- `gtk2-engines-pixbuf`
+  
+**影響:**  
+- デスクトップ環境のアイコンやテーマが変わる可能性
+- 例えば、ウィンドウのボタン（閉じる、最小化など）やフォルダのアイコンが変化する可能性
+
+---
+
+### **2. フォント関連のパッケージが削除**
+#### **影響を受ける可能性があるパッケージ**
+- `fonts-kacst`
+- `fonts-kacst-one`
+- `fonts-khmeros-core`
+- `fonts-lao`
+- `fonts-lklug-sinhala`
+- `fonts-sil-abyssinica`
+- `fonts-thai-tlwg`
+- `fonts-tibetan-machine`
+
+**影響:**  
+- 削除されたフォントを使っていた場合、文字の表示が変わる可能性
+- 一部の言語（アラビア語、クメール語、ラオス語、チベット語など）のフォントが削除されたため、それらの言語が表示されなくなる、または違うフォントに置き換わる可能性
+
+---
+
+### **3. Nautilus（ファイルマネージャ）関連のパッケージが削除**
+#### **影響を受ける可能性があるパッケージ**
+- `nautilus-share`（Nautilusのファイル共有機能）
+- `baobab`（ディスク使用状況を可視化するツール）
+
+**影響:**  
+- Nautilus（ファイルマネージャ）でのファイル共有機能が使えなくなる可能性
+- `baobab` が削除されたため、ディスク使用状況を視覚的に確認するツールがなくなる可能性
+
+---
+
+### **4. GNOMEアプリやツールが削除**
+#### **影響を受ける可能性があるパッケージ**
+- `gnome-calculator`（電卓）
+- `gnome-calendar`（カレンダー）
+- `gnome-characters`（特殊文字入力ツール）
+- `gnome-disk-utility`（ディスク管理ツール）
+- `gnome-font-viewer`（フォントビューア）
+- `gnome-mahjongg`（ゲーム）
+- `gnome-mines`（ゲーム）
+- `gnome-power-manager`（電源管理）
+- `gnome-sudoku`（ゲーム）
+- `gnome-system-monitor`（タスクマネージャ）
+- `gnome-todo`（ToDoリスト管理）
+
+**影響:**  
+- GNOMEデスクトップ環境を使っている場合、一部のアプリが消えたことで、機能の一部が利用不可能に
+- `gnome-system-monitor` が削除されたため、プロセスの管理（タスクマネージャ的な操作）ができなくなる
+- `gnome-disk-utility` の削除で、USBやHDDのフォーマットやディスクの情報をGUIで確認不可能に
+
+---
+
+### **5. LibreOffice関連の削除**
+#### **影響を受ける可能性があるパッケージ**
+- `libreoffice-calc`（Excelのような表計算）
+- `libreoffice-draw`（図形描画）
+- `libreoffice-gnome`
+- `libreoffice-gtk3`
+- `libreoffice-impress`（PowerPointのようなプレゼンテーションツール）
+- `libreoffice-ogltrans`
+- `libreoffice-pdfimport`
+
+**影響:**  
+- LibreOffice関連のアプリがすべて削除された可能性
+- デスクトップ環境の統合（GTK3対応）がなくなり、他のオフィスソフトと見た目が異なる可能性
+
+---
+
+### **6. リズムボックス（Rhythmbox）やオーディオ関連の削除**
+#### **影響を受ける可能性があるパッケージ**
+- `rhythmbox`（音楽プレイヤー）
+- `rhythmbox-data`
+- `rhythmbox-plugin-alternative-toolbar`
+- `rhythmbox-plugins`
+
+**影響:**  
+- 音楽プレイヤーが削除され、音楽ファイルの再生が不便に
+- GNOMEのメディアキー（再生/一時停止ボタンなど）が機能しなくなる可能性
+
+---
+
+### **7. その他、影響がありそうなパッケージ**
+- `usb-creator-gtk` → UbuntuのUSB作成ツール
+- `simple-scan` → スキャナアプリ（スキャナを使う場合影響あり）
+- `seahorse` → GNOMEのパスワード管理ツール
+- `shotwell` → 画像ビューア・管理ソフト
+- `transmission-common` → BitTorrentクライアント
+- `fwupd`（ファームウェア更新ツール）が削除されたため、一部のハードウェアのファームウェア更新ができなくなる可能性がある。
+
+---
+
+**対策**
+- `yaru-theme-gtk`, `yaru-theme-icon`, `gnome-themes-extra` などを再インストール
+- `gnome-tweaks` をインストールし、テーマやアイコンを変更
+- `sudo apt install --reinstall gnome-themes-extra yaru-theme-gtk yaru-theme-icon fonts-kacst fonts-lao` などで一部の削除されたパッケージを復元できる可能性
+
+フォルダの見た目が変わってしまった場合、これらを試す
+```
 <a id="memo"></a>
 # Memo
 - Tex関係
