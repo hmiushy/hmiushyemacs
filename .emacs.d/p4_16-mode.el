@@ -22,7 +22,7 @@
 ;; Define the keymap (for now it is pretty much default)
 (defvar p4_16-mode-map
   (let ((map (make-keymap)))
-    (define-key map "\C-j" 'newline-and-indent)
+    ;;(define-key map "\C-j" 'newline-and-indent)
     map)
   "Keymap for P4_16 major mode")
 
