@@ -1,11 +1,6 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;
-(setq windmove-wrap-around t)
-;;(define-key global-map (kbd "C-z") 'eshell)
-(define-key global-map (kbd "C-j") 'switch-to-next-buffer)
-(define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
-(define-key global-map (kbd "C-q") 'other-window)
 
 ;; Maximize the frame
 (toggle-frame-maximized)
@@ -298,3 +293,10 @@ mouse-wheel-progressive-speed nil)
 (setq text-mode-hook 'turn-on-auto-fill)
 (setq yatex-mode-hook 'turn-on-auto-fill)
 (setq default-major-mode 'text-mode)
+
+
+(setq windmove-wrap-around t)
+;;(define-key global-map (kbd "C-z") 'eshell)
+(define-key global-map (kbd "C-j") 'switch-to-next-buffer)
+(define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
+(define-key global-map (kbd "C-q") 'other-window)
