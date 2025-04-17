@@ -301,11 +301,13 @@
   python -m venv .venv
   ## Activeate
   . .venv/bin/activate
-
+  
+  ## Upgrade pip
+  pythom -m pip install --upgrade pip
   ## Install packages
   pip install -r requirements.txt
   # or
-  pip install "YouWantoInstallPacks"
+  pip install "PacksYouWantoInstall"
   ```
 
 - Test (GPU)
