@@ -92,7 +92,77 @@
     sudo apt remove --autoremove emacs emacs-common
     sudo apt install emacs28 -y
     ```
+- UbuntuではなくDebianでemacs27をインストールする場合
+  ```bash
+  sudo vim /etc/apt/sources.list
+  ```
+  以下を追加
+  ```
+  Deb http://deb.debian.org/debian bullseye-backports main
+  ```
+  以下を実行
+  ```
+  sudo apt update
+  sudo apt -t bullseye-backports install emacs
+  ```
+  emacsの設定
+  ```
+  ;; Maximize the frame
+  (toggle-frame-maximized)
+ 
+  ;; setting to C-h is backspace
+  (keyboard-translate ?\C-h ?\C-?)
+  
+  ;; the above definition may not have been defined within Mini buffer
+  (global-set-key "\C-h" nil)
+  
+  ;; setting of windowsize
+  ;; (setq default-frame-alist (append (list '(cursor-color . "purple"))
+  ;;                default-frame-alist))
 
+  ;; do not display the menu bar
+  (menu-bar-mode 0)
+  
+  ;; do not display startup messages
+  (setq inhibit-startup-message t)
+  
+  ;; display the name of a function at the current point
+  (which-function-mode 1)
+  
+  ;; set language as japanese
+  (set-language-environment 'Japanese)
+  ;; coding UTF8
+  (set-language-environment 'utf-8)
+  (prefer-coding-system 'utf-8)
+
+  ;; automatically complete parantheses
+  (electric-pair-mode 1)
+  
+  ;; display full-path at the title bar
+  (setq frame-title-format "%f")
+ 
+  ;; do not create backup files
+  (setq make-backup-files nil)
+  (setq make-save-default nil)
+ 
+  ;; display the line num
+  (require 'linum)
+  (global-linum-mode 1)
+  ;; light up the line
+  (global-hl-line-mode t)
+
+  ;; high light
+  (require 'hl-line)
+  (set-face-background 'hl-line "white")
+
+  ;; tab
+  (setq-default tab-width 4 indent-tabs-mode nil)
+  (setq windmove-wrap-around t)
+  ;;(define-key global-map (kbd "C-z") 'eshell)
+  (define-key global-map (kbd "C-j") 'switch-to-next-buffer)
+  (define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
+  (define-key global-map (kbd "C-q") 'other-window)
+  ```
 <a id="ubuntu22"></a>    
 # Ubuntu-22.04インストール後
 - アップデート&アップグレード後，再起動
