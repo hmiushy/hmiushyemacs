@@ -105,7 +105,7 @@
   sudo apt update
   sudo apt -t bullseye-backports install emacs
   ```
-  emacsの設定
+  emacsの設定 (~/.emacs.d/init.elに以下を追加)
   ```
   ;; Maximize the frame
   (toggle-frame-maximized)
