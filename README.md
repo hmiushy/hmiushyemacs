@@ -163,6 +163,11 @@
   (define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
   (define-key global-map (kbd "C-q") 'other-window)
   ```
+  - 古い鍵の削除
+  ```bash
+  ## 任意のIPを指定
+  ssh-keygen -R 172.28.234.223
+  ```
 <a id="ubuntu22"></a>    
 # Ubuntu-22.04インストール後
 - アップデート&アップグレード後，再起動
