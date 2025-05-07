@@ -264,6 +264,11 @@
   sudo apt install -y mozc-utils-gui # (?)
   /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
   ```
+  WSLを使用するとき、日本語が文字化け：対応
+  ```bash
+  sudo apt install fonts-noto-cjk fonts-ipafont-gothic fonts-ipafont-mincho
+  ```
+  これを実行したらフォントが正しく表示された。
 - matplotlibでTimes New Romanが使えないとき (Ubuntu)
   ```bash
   sudo apt install msttcorefonts -qq
