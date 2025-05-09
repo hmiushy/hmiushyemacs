@@ -549,6 +549,22 @@
   xhost +SI:localuser:root # これだけ
   sudo ./install
   ```
+  WSLでmatlabをインストール
+  ```
+  #.isoファイルをコピー
+  # マウント用のフォルダ作成
+  mkdir ./mnt_iso
+  # マウント & 移動
+  sudo mount -o loop ./R2024b_Linux.iso ./mnt_iso
+  cd mnt_iso
+  
+  # GUI操作を可能にするライブラリ等をインストール
+  sudo apt update
+  sudo apt install libnss3 libxss1 libasound2 libatk1.0-0 libgtk-3-0 \
+  libxcomposite1 libxrandr2 libgbm1 libpangocairo-1.0-0 libglu1-mesa
+  # インストール
+  sudo ./install # これでインストーラが起動
+  ```
 - Install xrdp to Ubuntu-22.04 <br>
   <a href="https://orenda.co.jp/blog/rdp-ubuntu%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">[windows + Linux]RDP + Ubuntuを使った開発環境構築</a><br>
   <a href="https://qiita.com/koba-jon/items/019a3b4eac4f60ca89c9">Ubuntu 20.04 LTS インストール方法（外付けドライブ用）</a>
