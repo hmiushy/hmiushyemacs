@@ -50,6 +50,27 @@
   emacs &
   rm -rf hmiushyemacs
   ```
+- [ほかの方法](https://www.kkaneko.jp/tools/win/emacs.html)
+  [ここ](https://www.gnu.org/software/emacs/download.html)のn`earby GNU mirror`からインストールしたいemacsのバージョンをダウンロード
+  ```
+  wget https://
+  ```
+  ファイルを解凍
+  ```
+  # ファイル名は適宜変更
+  tar zxf emacs-29.4.tar.gz
+  ```
+  必要なパッケージをインストールしておく
+  ```
+  sudo apt install texinfo libtinfo-dev pkg-config libgnutls28-dev 
+  ```
+  ビルド
+  ```
+  cd emacs-29.4
+  ./configure
+  make
+  sudo make install
+  ```
 - Additional
   - rainbow-mode (エディタ上のカラーコードにその色を付ける) <br>
     `M-x package-list-packages RET, C-s rainbow-mode, x, i`
