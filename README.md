@@ -68,8 +68,8 @@
   ビルド
   ```
   cd emacs-29.4
-  ./configure
-  make
+  sudo ./configure
+  sudo make
   sudo make install
   ```
 - Additional
