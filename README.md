@@ -51,9 +51,9 @@
   rm -rf hmiushyemacs
   ```
 - [ほかの方法](https://www.kkaneko.jp/tools/win/emacs.html)
-  [ここ](https://www.gnu.org/software/emacs/download.html)のn`earby GNU mirror`からインストールしたいemacsのバージョンをダウンロード
+  [ここ](https://www.gnu.org/software/emacs/download.html)の`nearby GNU mirror`からインストールしたいemacsのバージョンをダウンロード
   ```
-  wget https://
+  wget https://ftp.kaist.ac.kr/gnu/emacs/emacs-30.1.tar.gz # バージョンは好きなやつ
   ```
   ファイルを解凍
   ```
@@ -62,7 +62,8 @@
   ```
   必要なパッケージをインストールしておく
   ```
-  sudo apt install texinfo libtinfo-dev pkg-config libgnutls28-dev 
+  sudo apt install texinfo libtinfo-dev pkg-config libgnutls28-dev
+  sudo apt install build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libncurses-dev
   ```
   ビルド
   ```
