@@ -53,7 +53,7 @@
 - [ほかの方法](https://www.kkaneko.jp/tools/win/emacs.html)
   [ここ](https://www.gnu.org/software/emacs/download.html)の`nearby GNU mirror`からインストールしたいemacsのバージョンをダウンロード
   ```
-  wget https://ftp.kaist.ac.kr/gnu/emacs/emacs-30.1.tar.gz # バージョンは好きなやつ
+  wget https://ftp.kaist.ac.kr/gnu/emacs/emacs-29.4.tar.gz # バージョンは好きなやつ
   ```
   ファイルを解凍
   ```
