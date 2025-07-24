@@ -369,6 +369,7 @@
 
 <a id="pyenv"></a>
 # Ubuntuにpyenvをインストール
+最近だと，uvがいいかも．一応，過去の環境構築方法をメモ．
 - 依存関係インストール
   ```bash
   sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git
