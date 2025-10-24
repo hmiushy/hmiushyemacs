@@ -214,7 +214,7 @@
 (setq auto-save-default nil)
 (setq
 ;; the number of scroll lines you can decide 
-mouse-wheel-scroll-amount '(1 ((shift) . 2) ((control)))
+mouse-wheel-scroll-amount '(5 ((shift) . 2) ((control)))
 ;; ignore the speed
 mouse-wheel-progressive-speed nil)
 
@@ -224,39 +224,6 @@ mouse-wheel-progressive-speed nil)
 (load-theme 'zenburn t)
 (set-face-attribute 'highlight nil :foreground 'unspecified)
 
-
-;;(straight-use-package 'flycheck)
-;;(straight-use-package 'flycheck-grammarly)
-
-;; ;; ;; flycheck
-;; (leaf flycheck
-;;  :doc "On-the-fly syntax checking"
-;;  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-28.1"
-;;  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
-;;  :url "http://www.flycheck.org"
-;;  :emacs>= 24.3
-;;  :ensure t
-;;  :bind (("M-n" . flycheck-next-error)
-;;         ("M-p" . flycheck-previous-error))
-;;  :global-minor-mode global-flycheck-mode)
-
-;; flycheck
-;;(use-package flycheck  
-;;  :init
-;;  (add-hook 'yatex-mode-hook 'flycheck-mode)
-;;  :config
-;;  (global-flycheck-mode t)
-;;  )
-;; flycheck-grammarly
-;;(use-package flycheck-grammarly  
-;;  :ensure t  
-;;  :after flycheck  
-;;  :config  
-;;  (setq flycheck-grammarly-check-time 0.8)  
-;;  (add-to-list 'flycheck-checkers 'grammarly))
-;;(with-eval-after-load 'flycheck
-;;  (flycheck-grammarly-setup))
-;;(add-hook 'yatex-mode-hook 'flymake-grammarly-load)
 
 ;;; 複数行移動
 (global-set-key "\M-n" (kbd "C-u 5 C-n"))
@@ -276,17 +243,23 @@ mouse-wheel-progressive-speed nil)
 (prefer-coding-system 'utf-8)                   ;
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 
-;;
-;; YaTeX
-;;
-;; sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince
-;; sudo apt install -y yatex
-(straight-use-package 'yatex)
-(add-to-list 'load-path "~/.emacs.d/straight/repos/yatex")
+
+
+
+
 (load "~/.emacs.d/mytex.el")
-(setq YaTeX-kanji-code 4   ; 1: SJIS, 2: JIS, 3: EUC, 4: UTF-8
-      YaTeX-latex-message-code 'utf-8  ; 文字化けしないようにする
-      )
+
+
+
+
+
+
+;; ここが肝：C-c j（= typeset）で latexmk を実行
+(setq tex-command "latexmk -pdfdvi")   ;; .latexmkrcの設定でuplatex→dvipdfmx→PDF
+
+;; ビューア（PDFを開く）
+(setq dvi2-command "xdg-open")   ;; C-c v で xdg-open <生成物> を開く
+
 
 ;;; 一行が 100 字以上になった時には自動改行する
 (setq fill-column 100)
@@ -300,3 +273,29 @@ mouse-wheel-progressive-speed nil)
 (define-key global-map (kbd "C-j") 'switch-to-next-buffer)
 (define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
 (define-key global-map (kbd "C-q") 'other-window)
+
+(global-set-key (kbd "C-c f") 'fill-region)
+(defun fill-whole-buffer ()
+  "Fill the entire buffer."
+  (interactive)
+  (fill-region (point-min) (point-max)))
+
+(global-set-key (kbd "C-c F") 'fill-whole-buffer)
+
+
+(defvar my-bufnav-mode-map
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "C-j") #'switch-to-next-buffer)
+    (define-key m (kbd "C-o") #'switch-to-prev-buffer)
+    m)
+  "Keymap for `my-bufnav-mode'.")
+
+(define-minor-mode my-bufnav-mode
+  "Force C-j/C-o to switch buffers everywhere."
+  :init-value t :lighter "" :keymap my-bufnav-mode-map)
+
+(my-bufnav-mode 1)
+
+;; ミニバッファでは邪魔しない（任意）
+(add-hook 'minibuffer-setup-hook (lambda () (my-bufnav-mode -1)))
+(add-hook 'minibuffer-exit-hook  (lambda () (my-bufnav-mode  1)))
