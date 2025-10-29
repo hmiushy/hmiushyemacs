@@ -421,7 +421,8 @@
 # Yatex
 - 端末を開いてコマンドでインストール
   ```bash
-  sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince
+  sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince latexmk
+  sudo apt install texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
   sudo apt install -y yatex
   ```
   
