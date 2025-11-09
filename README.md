@@ -218,7 +218,7 @@
 - 句読点の変更<br>
   Mozc設定ツールをインストール
   ```
-  sudo apt install mozc-utils-gui -y
+  sudo apt install -y emacs-mozc ibus-mozc mozc-utils-gui
   ```
   Mozc設定ツールをアクティビティから開いた後，簡単に変更可能
 
