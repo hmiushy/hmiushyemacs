@@ -54,19 +54,19 @@
   [ここ](https://www.gnu.org/software/emacs/download.html)の`nearby GNU mirror`からインストールしたいemacsのバージョンをダウンロード
   ```
   wget https://ftp.kaist.ac.kr/gnu/emacs/emacs-29.4.tar.gz # バージョンは好きなやつ
-  ```
-  ファイルを解凍
-  ```
+  
+  # ファイルを解凍
   # ファイル名は適宜変更
   tar zxf emacs-29.4.tar.gz
-  ```
-  必要なパッケージをインストールしておく
-  ```
-  sudo apt install texinfo libtinfo-dev pkg-config libgnutls28-dev
-  sudo apt install build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libncurses-dev
-  ```
-  ビルド
-  ```
+  # 必要なパッケージをインストールしておく
+  sudo apt install -y texinfo libtinfo-dev pkg-config libgnutls28-dev build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libncurses-dev
+  # yatex系
+  sudo apt install -y texlive-lang-japanese  texlive-latex-extra xdvik-ja evince latexmk texlive-science
+  sudo apt install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
+  sudo apt install -y yatex
+  # mozc系  
+  sudo apt install -y emacs-mozc mozc-utils-gui ibus ibus-mozc fcitx5 fcitx5-mozc fonts-takao fonts-noto-cj xdg-utils
+  # ビルド
   cd emacs-29.4
   sudo ./configure
   sudo make
