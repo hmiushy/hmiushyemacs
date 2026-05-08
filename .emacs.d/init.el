@@ -1,29 +1,8 @@
+(setq debug-on-error t)
+
 ;;; package --- Summary
 ;;; Commentary:
 ;;
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
-
-;; mozc がある時だけ設定
-(when (locate-library "mozc")
-  (use-package mozc
-    :init
-    (setq default-input-method "japanese-mozc")
-    ;; かな/英数切替を好みで（例：C-\\ 既定のトグルに乗せる）
-    ))
 
 ;; Maximize the frame
 (toggle-frame-maximized)
@@ -64,8 +43,8 @@
 (setq make-save-default nil)
 
 ;; display the line num
-;; (require 'linum)
-;; (global-linum-mode 1)
+(require 'linum)
+(global-linum-mode 1)
 ;; light up the line
 (global-hl-line-mode t)
 
@@ -75,6 +54,35 @@
 
 ;; tab
 (setq-default tab-width 4 indent-tabs-mode nil)
+
+(require 'package)
+(autoload 'package-run "package")
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://mail.gnu.org/archive/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+
+;;(package-initialize)
+(with-eval-after-load 'package (package-initialize))
+
+;; Package manager
+;; Run Installation and initialization by writing these codes
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
 (straight-use-package 'leaf)
@@ -122,7 +130,13 @@
 ;;tab
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-(setq ring-bell-function #'ignore)
+
+;; buffer no sounds
+(defun next-line (arg)
+  (interactive "p")
+  (condition-case nil
+      (line-move arg)
+    (end-of-buffer)))
 
 ;; Terminal 化
 (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
@@ -209,35 +223,102 @@ mouse-wheel-progressive-speed nil)
 (load "~/.emacs.d/p4-mode.el")
 
 ;; good vibes the color of window
-(load-theme 'zenburn t)
-(set-face-attribute 'highlight nil :foreground 'unspecified)
+;; (load-theme 'zenburn t)
+;; (set-face-attribute 'highlight nil :foreground 'unspecified)
 
+;; (use-package yatex
+;;   :ensure t
+;;   :mode ("\\.tex\\'" . yatex-mode)
+;;   :init
+;;   (setq auto-mode-alist
+;;         (append '(("\\.tex$" . yatex-mode)) auto-mode-alist))
+;;   :config
+;;   ;; YaTeX の設定
+;;   (setq tex-command "platex -interaction=nonstopmode"
+;;         dvi2-command "xdg-open"
+;;         YaTeX-kanji-code 4 ; UTF-8 の場合
+;;         YaTeX-use-LaTeX2e t
+;;         YaTeX-dvi2-command-ext-alist
+;;         '(("dvi" . "xdvi") ("pdf" . "evince") ("ps" . "gv"))))
+;;(straight-use-package 'flycheck)
+;;(straight-use-package 'flycheck-grammarly)
+
+;; ;; ;; flycheck
+;; (leaf flycheck
+;;  :doc "On-the-fly syntax checking"
+;;  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-28.1"
+;;  :tag "minor-mode" "tools" "languages" "convenience" "emacs>=24.3"
+;;  :url "http://www.flycheck.org"
+;;  :emacs>= 24.3
+;;  :ensure t
+;;  :bind (("M-n" . flycheck-next-error)
+;;         ("M-p" . flycheck-previous-error))
+;;  :global-minor-mode global-flycheck-mode)
+
+;; flycheck
+;;(use-package flycheck  
+;;  :init
+;;  (add-hook 'yatex-mode-hook 'flycheck-mode)
+;;  :config
+;;  (global-flycheck-mode t)
+;;  )
+;; flycheck-grammarly
+;;(use-package flycheck-grammarly  
+;;  :ensure t  
+;;  :after flycheck  
+;;  :config  
+;;  (setq flycheck-grammarly-check-time 0.8)  
+;;  (add-to-list 'flycheck-checkers 'grammarly))
+;;(with-eval-after-load 'flycheck
+;;  (flycheck-grammarly-setup))
+;;(add-hook 'yatex-mode-hook 'flymake-grammarly-load)
 
 ;;; 複数行移動
 (global-set-key "\M-n" (kbd "C-u 5 C-n"))
 (global-set-key "\M-p" (kbd "C-u 5 C-p"))
 
+;;
+;; Mozc
+;; 
+;; First, Install mozc by command to use Japanese
+;; sudo apt install -y mozc-ibus
+;; sudo apt install -y mozc-utils-gui (?)
+;; /usr/lib/mozc/mozc_tool --mode=config_dialog # setting
+
+(require 'mozc)                                 ; 
+(set-language-environment "Japanese")           ; 
+(setq default-input-method "japanese-mozc")     ; 
+(prefer-coding-system 'utf-8)                   ;
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 
 
+
+
+
+
+;; (straight-use-package 'yatex)
+;; (add-to-list 'load-path "~/.emacs.d/straight/repos/yatex")
+(add-to-list 'exec-path "/usr/bin")
+(setenv "PATH" (concat "/usr/bin:" (getenv "PATH")))
 (load "~/.emacs.d/mytex.el")
 
 
 
 
-;; C-c j（= typeset）で latexmk を実行
-(setq tex-command "latexmk -pdfdvi")   ;; .latexmkrcの設定でuplatex→dvipdfmx→PDF
-
-;; ビューア（PDFを開く）
-(setq dvi2-command "xdg-open")   ;; C-c v で xdg-open <生成物> を開く
 
 
 ;;; 一行が 100 字以上になった時には自動改行する
 (setq fill-column 100)
-(setq text-mode-hook 'turn-on-auto-fill)
-(setq yatex-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook  #'turn-on-auto-fill)
+(add-hook 'yatex-mode-hook #'turn-on-auto-fill)
 (setq default-major-mode 'text-mode)
 
 
+(setq windmove-wrap-around t)
+;;(define-key global-map (kbd "C-z") 'eshell)
+(define-key global-map (kbd "C-j") 'switch-to-next-buffer)
+(define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
+(define-key global-map (kbd "C-q") 'other-window)
 
 (global-set-key (kbd "C-c f") 'fill-region)
 (defun fill-whole-buffer ()
@@ -265,18 +346,39 @@ mouse-wheel-progressive-speed nil)
 (add-hook 'minibuffer-setup-hook (lambda () (my-bufnav-mode -1)))
 (add-hook 'minibuffer-exit-hook  (lambda () (my-bufnav-mode  1)))
 
-(setq windmove-wrap-around t)
-;;(define-key global-map (kbd "C-z") 'eshell)
-(define-key global-map (kbd "C-j") 'switch-to-next-buffer)
-(define-key global-map (kbd "C-o") 'switch-to-prev-buffer)
-(define-key global-map (kbd "C-q") 'other-window)
+(setq ring-bell-function 'ignore)
+
+;; (setq mozc-candidate-style 'overlay)
+
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
+(setq mozc-keymap-katakana '(("。" . "．") ("、" . "，")))
+
+(defvar-local my-tex-punct-inhibit nil)
+
+(defun my-tex-punct-after-change (beg end _len)
+  "TeX/YaTeX バッファで「、。」を「，．」に置換する。"
+  (when (and (not my-tex-punct-inhibit)
+             (not (minibufferp))
+             (or (eq major-mode 'yatex-mode)
+                 (eq major-mode 'latex-mode)))
+    (let ((my-tex-punct-inhibit t))
+      (save-excursion
+        (goto-char beg)
+        (while (search-forward "。" end t)
+          (replace-match "．" t t))
+        (goto-char beg)
+        (while (search-forward "、" end t)
+          (replace-match "，" t t))))))
+
+(defun my-tex-punct-setup ()
+  (add-hook 'after-change-functions #'my-tex-punct-after-change nil t))
+
+(add-hook 'yatex-mode-hook  #'my-tex-punct-setup)
+(add-hook 'latex-mode-hook  #'my-tex-punct-setup)
 
 
-(when (require 'hiwin nil t)
-  (hiwin-activate)
-  (set-face-background 'hiwin-face "gray10"))
-(set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
-(straight-use-package 'shell-pop)
-(setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
-(global-set-key (kbd "C-c o") 'shell-pop)
+;; 選択範囲の背景色
+(set-face-attribute 'region nil
+  :background "#3a86ff"
+  :foreground "#ffffff")
